@@ -22,7 +22,7 @@ router.post('/add', auth.authenticateToken,(req, res) => {
 
 router.get('/get',auth.authenticateToken ,(req,res)=>{
     let query = `select * from film`;
-    connection.query(query,(err,result)=>{
+    db.query(query,(err,result)=>{
         if(!err){
             return res.status(200).json(result);
         }
@@ -80,7 +80,7 @@ router.get('/getByUser/:id', auth.authenticateToken,(req, res) => {
 router.get('/getByCategory/:id',auth.authenticateToken,(req,res)=>{
     const id = req.params.id;
     let query = `select id,title from film where category_id = ?`;
-    connection.query(query,[id],(err,result)=>{  
+    db.query(query,[id],(err,result)=>{  
         if(!err){
             return res.status(200).json(result);
         }
@@ -94,7 +94,7 @@ router.get('/getByCategory/:id',auth.authenticateToken,(req,res)=>{
 router.get('/getById/:id',auth.authenticateToken,(req,res)=>{
     const id = req.params.id;
     let query = `select id,title,description,product,language,duration from film where id = ?`;
-    connection.query(query,[id],(err,result)=>{  
+    db.query(query,[id],(err,result)=>{  
         if(!err){
             return res.status(200).json(result[0]);
         }
@@ -108,7 +108,7 @@ router.get('/getById/:id',auth.authenticateToken,(req,res)=>{
 router.patch('/update',auth.authenticateToken,(req,res)=>{
     let film = req.body;
     let query = "update film set title=? ,description=? ,product=? ,language=?, duration=?, category_id=? where id=?";
-    connection.query(query,[film.title,film.description,film.product,film.language,film.duration,film.category_id,film.id],(err,result)=>{
+    db.query(query,[film.title,film.description,film.product,film.language,film.duration,film.category_id,film.id],(err,result)=>{
         if(!err){
             if(result.affectedRows == 0){
                 return res.status(404).json({message:"film id does not found!"});
@@ -125,7 +125,7 @@ router.patch('/update',auth.authenticateToken,(req,res)=>{
 router.delete('/delete/:id',auth.authenticateToken,(req,res)=>{
     let id = req.params.id;
     let query = "delete from film where id=?";
-    connection.query(query,[id],(err,result)=>{
+    db.query(query,[id],(err,result)=>{
         if(!err){
             if(result.affectedRows == 0){
                 return res.status(404).json({message:"film id does not found!"});
