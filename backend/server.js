@@ -6,12 +6,14 @@ const cors = require("cors");
 const db = require("./db");
 
 const userRoute = require("./routes/user");
+const categoryRoute = require("./routes/category");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/user', userRoute);
+app.use('/category', categoryRoute);
 
 app.listen(process.env.PORT, () => {
   console.log("server is running");
