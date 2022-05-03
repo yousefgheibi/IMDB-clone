@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { FavoriteService } from 'src/app/services/favorite.service';
 import { FilmService } from 'src/app/services/film.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { GlobalContanst } from 'src/app/shared/globalContanst';
@@ -15,7 +16,7 @@ export class CategoryComponent implements OnInit {
   searchKey : string | undefined;
   data: any;
   responseMessage:any;
-  constructor(private categoryService : CategoryService , private notificationService : NotificationService , private filmService : FilmService) { }
+  constructor(private categoryService : CategoryService ,private favoriteService:FavoriteService, private notificationService : NotificationService , private filmService : FilmService) { }
 
   ngOnInit(): void {
     this.tableData();
@@ -67,12 +68,9 @@ export class CategoryComponent implements OnInit {
   
   }
 
-
-  applyFilter(event:Event){
-    const filterValue = (event.target as HTMLInputElement).value;
-    const searchdata = [] = this.data.title;
-    searchdata.filter = filterValue.trim().toLowerCase();
-    console.log(searchdata);
+  add2Favorite(film:any) {
+    console.log(film);
+    this.favoriteService.addToFavorite(film);
   }
 
   doSearch(searchKey : string) {
