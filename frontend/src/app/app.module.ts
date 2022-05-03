@@ -8,7 +8,6 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FullComponent } from './layout/full/full.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CategoryComponent } from './pages/category/category.component';
-import { TopMovieComponent } from './pages/top-movie/top-movie.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { MyAcountComponent } from './my-acount/my-acount.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { ToastrModule } from 'ngx-toastr';
     FullComponent,
     HomeComponent,
     CategoryComponent,
-    TopMovieComponent,
     FavoriteComponent,
     MyAcountComponent
   ],

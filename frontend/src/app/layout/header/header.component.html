@@ -16,11 +16,6 @@
               >Category</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/top-movie']" routerLinkActive="active"
-              >Top</a
-            >
-          </li>
          
         </ul>
         <span *ngIf="isLoggedIn"  class="material-icons  me-3" [routerLink]="['/dashboard']">
@@ -59,13 +54,7 @@
       >
         Category
       </a>
-      <a
-        (click)="onCloseMenu()"
-        [routerLink]="['/top-movie']"
-        routerLinkActive="active"
-      >
-        Top
-      </a>
+      
 
     </div>
     <div class="py-5 icons">
