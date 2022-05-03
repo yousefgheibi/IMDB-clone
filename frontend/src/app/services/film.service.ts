@@ -8,14 +8,14 @@ import { environment } from 'src/environments/environment';
 export class FilmService {
 
   url = environment.apiUrl;
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
- 
-  getFilm(){
-    return this.httpClient.get(this.url+"/film/get/");
+
+  getFilm() {
+    return this.httpClient.get(this.url + "/film/get/");
   }
 
-  getFilmByCategory(id:number){
-    return this.httpClient.get(this.url+"/film/getByCategory/"+id);
+  getFilmByCategory(id: number) {
+    return this.httpClient.get(this.url + "/film/getByCategory/" + id);
   }
 }

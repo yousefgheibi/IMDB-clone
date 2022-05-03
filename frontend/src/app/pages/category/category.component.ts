@@ -11,12 +11,15 @@ import { GlobalContanst } from 'src/app/shared/globalContanst';
 })
 export class CategoryComponent implements OnInit {
   dataSource:any;
+  isWait : boolean = false;
+  searchKey : string | undefined;
   data: any;
   responseMessage:any;
   constructor(private categoryService : CategoryService , private notificationService : NotificationService , private filmService : FilmService) { }
 
   ngOnInit(): void {
     this.tableData();
+    this.getAll();
   } 
 
   tableData(){
@@ -31,6 +34,7 @@ export class CategoryComponent implements OnInit {
       }
       this.notificationService.showError(this.responseMessage);
     })
+    this.isWait = true;
   }
 
   getAll(){
@@ -63,4 +67,27 @@ export class CategoryComponent implements OnInit {
   
   }
 
+
+  applyFilter(event:Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    const searchdata = [] = this.data.title;
+    searchdata.filter = filterValue.trim().toLowerCase();
+    console.log(searchdata);
+  }
+
+  doSearch(searchKey : string) {
+    let result = [];
+    if(searchKey.length > 2) {
+      result = this.data.filter((item: { title: string; }) => {
+        // @ts-ignore
+        return !(item.title.trim().indexOf(this.searchKey.trim()) <= -1);
+      });
+    }
+    if(result.length > 0 ){
+      this.data = result;
+    }
+    else{
+        this.getAll();
+    }
+  }
 }

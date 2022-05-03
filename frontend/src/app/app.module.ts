@@ -11,7 +11,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { TopMovieComponent } from './pages/top-movie/top-movie.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { MyAcountComponent } from './my-acount/my-acount.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -33,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ToastrModule.forRoot()
   ],
   providers: [],
