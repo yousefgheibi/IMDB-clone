@@ -1,0 +1,99 @@
+.nav-links {
+    color: #fff;
+    font-size: 0.8rem;
+    transition: all 300ms ease;
+    &:hover,
+    &.active {
+      color: #ffc20f;
+      cursor: pointer;
+      text-decoration: underline solid red 2px;
+      text-underline-offset: 1em;
+    }
+  }
+  
+  .navbar {
+    height: 5rem;
+    background: #121212;
+    ul {
+      li {
+        padding: 0 0.2rem;
+  
+        a {
+          @extend .nav-links;
+        }
+      }
+    }
+    span {
+      color: #fff;
+      font-size: 1.4rem;
+      transition: all 300ms ease;
+      &:hover {
+        color: #ffc20f;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  #menu-btn , #close-btn{
+    display: none;
+  }
+  
+  aside {
+    display: none;
+    position: absolute;
+    left: -300px;
+    animation: showSidebar 500ms ease forwards;
+  }
+  
+  aside .sidebar a {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    height: 4.5rem;
+    @extend .nav-links;
+  }
+  
+  aside .icons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    border: none;
+    background: transparent;
+  }
+  @media screen and (max-width: 767px) {
+    aside {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding-top: 2rem;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 91vh;
+      background: #121212;
+      width: 100%;
+      span {
+        color: #fff;
+        font-size: 1.4rem;
+        transition: all 300ms ease;
+        &:hover {
+          color: #ffc20f;
+          cursor: pointer;
+        }
+      }
+    }
+    
+    #menu-btn,#close-btn{
+      display: block;
+    }
+  
+  }
+  
+  
+  @keyframes showSidebar {
+      to{
+        left: 0;
+      }
+    }

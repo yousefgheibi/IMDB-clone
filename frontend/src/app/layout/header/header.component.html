@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/logo.png" width="50px" alt="" />
+      </a>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/category']" routerLinkActive="active"
+              >Category</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/top']" routerLinkActive="active"
+              >Top</a
+            >
+          </li>
+         
+        </ul>
+        <span class="material-icons  me-3" [routerLink]="['/my-account']">
+            account_circle
+            </span>
+        <span class="material-icons" [routerLink]="['/favorite']">
+          favorite_border
+        </span>
+      </div>
+      <button id="menu-btn">
+        <span class="material-icons">menu</span>
+      </button>
+    </div>
+  </nav>
+  
+  <aside #aside>
+    <button id="close-btn">
+      <span class="material-icons">close</span>
+    </button>
+    <div class="sidebar">
+      <a
+        (click)="onCloseMenu()"
+        [routerLink]="['/home']"
+        routerLinkActive="active"
+      >
+        Home
+      </a>
+      <a
+        (click)="onCloseMenu()"
+        [routerLink]="['/category']"
+        routerLinkActive="active"
+      >
+        Category
+      </a>
+      <a
+        (click)="onCloseMenu()"
+        [routerLink]="['/top']"
+        routerLinkActive="active"
+      >
+        Top
+      </a>
+
+    </div>
+    <div class="py-5 icons">
+      <span class="material-icons mx-5" (click)="onCloseMenu()" [routerLink]="['/my-account']">
+        account_circle
+      </span>
+      <span
+        class="material-icons mx-5"
+        (click)="onCloseMenu()"
+        [routerLink]="['/favorite']"
+      >
+        favorite_border
+      </span>
+    </div>
+  </aside>
+  
