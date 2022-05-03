@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,9 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn = true;
+  isLoggedIn = false;
   @ViewChild('aside') sidebar!: ElementRef;
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,private authService : AuthService) { }
 
   ngOnInit(): void {
     document.getElementById('close-btn')?.addEventListener('click', () => {
@@ -19,9 +20,15 @@ export class HeaderComponent implements OnInit {
       console.log('clicked');
       this.renderer.setStyle(this.sidebar.nativeElement, 'display', 'flex');
     });
+
+    this.isAuthenticated();
   }
 
   onCloseMenu() {
     this.renderer.setStyle(this.sidebar.nativeElement, 'display', 'none');
+  }
+
+  isAuthenticated(){
+    this.isLoggedIn = this.authService.isAuthenticated();
   }
 }

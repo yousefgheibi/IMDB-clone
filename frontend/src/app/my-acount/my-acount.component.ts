@@ -17,7 +17,7 @@ export class MyAcountComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
   responseMessage!: string;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService,private notificationService: NotificationService ,private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private notificationService: NotificationService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -44,8 +44,8 @@ export class MyAcountComponent implements OnInit {
       password: formData.password
     }
     this.userService.login(data).subscribe((res: any) => {
-
       this.responseMessage = res?.message;
+      localStorage.setItem('token', res.token);
       this.notificationService.showSuccess(this.responseMessage);
       this.router.navigate(['/dashboard']);
     }, (error) => {
@@ -59,7 +59,7 @@ export class MyAcountComponent implements OnInit {
     }
     )
   }
-  signUp() { 
+  signUp() {
     var formData = this.signupForm.value;
     var data = {
       name: formData.name,
@@ -67,10 +67,9 @@ export class MyAcountComponent implements OnInit {
       password: formData.password
     }
     this.userService.signup(data).subscribe((res: any) => {
-      console.log(res);
       this.responseMessage = res?.message;
       this.notificationService.showSuccess(this.responseMessage);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/']);
     }, (error) => {
       if (error.error?.message) {
         this.responseMessage = error.error?.message;
@@ -83,13 +82,12 @@ export class MyAcountComponent implements OnInit {
     )
   }
 
-  forgotPassword() { 
+  forgotPassword() {
     var formData = this.forgotPasswordForm.value;
     var data = {
       email: formData.email,
-        }
+    }
     this.userService.forgotPassword(data).subscribe((res: any) => {
-      console.log(res);
       this.responseMessage = res?.message;
       this.notificationService.showSuccess(this.responseMessage);
     }, (error) => {

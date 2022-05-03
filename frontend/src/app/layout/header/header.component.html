@@ -23,9 +23,13 @@
           </li>
          
         </ul>
-        <span class="material-icons  me-3" [routerLink]="['/my-account']">
+        <span *ngIf="isLoggedIn"  class="material-icons  me-3" [routerLink]="['/dashboard']">
             account_circle
             </span>
+
+            <span *ngIf="!isLoggedIn"  class="material-icons  me-3" [routerLink]="['/my-account']">
+              account_circle
+              </span>
         <span class="material-icons" [routerLink]="['/favorite']">
           favorite_border
         </span>
