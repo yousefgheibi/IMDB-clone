@@ -19,7 +19,7 @@ router.post('/add', auth.authenticateToken, (req, res, next) => {
 })
 
 
-router.get('/get', auth.authenticateToken, (req, res, next) => {
+router.get('/get', (req, res, next) => {
     let query = "select * from category order by name";
     db.query(query, (err, result) => {
         if (!err) {

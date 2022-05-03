@@ -20,7 +20,7 @@ router.post('/add', auth.authenticateToken,(req, res) => {
 })
 
 
-router.get('/get',auth.authenticateToken ,(req,res)=>{
+router.get('/get',(req,res)=>{
     let query = `select * from film`;
     db.query(query,(err,result)=>{
         if(!err){
@@ -33,7 +33,7 @@ router.get('/get',auth.authenticateToken ,(req,res)=>{
 })  
 
 
-router.get('/getByProduct/:id', auth.authenticateToken,(req, res) => {
+router.get('/getByProduct/:id',(req, res) => {
     const id = req.params.id;
     let query = `select id,title from film where product = ?`;
     db.query(query, [id], (err, result) => {
@@ -48,7 +48,7 @@ router.get('/getByProduct/:id', auth.authenticateToken,(req, res) => {
 })
 
 
-router.get('/getBylanguage/:id', auth.authenticateToken,(req, res) => {
+router.get('/getBylanguage/:id',(req, res) => {
     const id = req.params.id;
     let query = `select id,title from film where language = ?`;
     db.query(query, [id], (err, result) => {
@@ -77,9 +77,9 @@ router.get('/getByUser/:id', auth.authenticateToken,(req, res) => {
 })
 
 
-router.get('/getByCategory/:id',auth.authenticateToken,(req,res)=>{
+router.get('/getByCategory/:id',(req,res)=>{
     const id = req.params.id;
-    let query = `select id,title from film where category_id = ?`;
+    let query = `select * from film where category_id = ?`;
     db.query(query,[id],(err,result)=>{  
         if(!err){
             return res.status(200).json(result);
@@ -91,7 +91,7 @@ router.get('/getByCategory/:id',auth.authenticateToken,(req,res)=>{
 })
 
 
-router.get('/getById/:id',auth.authenticateToken,(req,res)=>{
+router.get('/getById/:id',(req,res)=>{
     const id = req.params.id;
     let query = `select id,title,description,product,language,duration from film where id = ?`;
     db.query(query,[id],(err,result)=>{  
