@@ -47,7 +47,7 @@ export class MyAcountComponent implements OnInit {
 
       this.responseMessage = res?.message;
       this.notificationService.showSuccess(this.responseMessage);
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }, (error) => {
       if (error.error?.message) {
         this.responseMessage = error.error?.message;
@@ -70,7 +70,7 @@ export class MyAcountComponent implements OnInit {
       console.log(res);
       this.responseMessage = res?.message;
       this.notificationService.showSuccess(this.responseMessage);
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }, (error) => {
       if (error.error?.message) {
         this.responseMessage = error.error?.message;

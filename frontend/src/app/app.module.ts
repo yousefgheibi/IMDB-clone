@@ -10,8 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { TopMovieComponent } from './pages/top-movie/top-movie.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
-import { MyAcountComponent } from './pages/my-acount/my-acount.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { MyAcountComponent } from './my-acount/my-acount.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -26,8 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     CategoryComponent,
     TopMovieComponent,
     FavoriteComponent,
-    MyAcountComponent,
-    DashboardComponent
+    MyAcountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layout/full/full.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MyAcountComponent } from './pages/my-acount/my-acount.component';
+import { MyAcountComponent } from './my-acount/my-acount.component';
 import { TopMovieComponent } from './pages/top-movie/top-movie.component';
+import { RouterGuardService } from './services/router-guard.service';
 
 const routes: Routes = [
   {
@@ -19,7 +19,10 @@ const routes: Routes = [
       { path: 'top-movie', component: TopMovieComponent  },
       { path: 'favorite', component: FavoriteComponent  },
       { path: 'my-account', component: MyAcountComponent },
-      { path: 'dashboard', component: DashboardComponent }
+      {  path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        canActivate:[RouterGuardService],
+      }
     ],
   },
 ];
