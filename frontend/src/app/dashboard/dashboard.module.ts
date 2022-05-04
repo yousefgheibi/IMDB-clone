@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { ManageFilmComponent } from './manage-film/manage-film.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManageAccountComponent } from './manage-account/manage-account.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [DashboardComponent, ManageFilmComponent]
+  declarations: [DashboardComponent, ManageFilmComponent, ManageAccountComponent]
 })
 export class DashboardModule { }

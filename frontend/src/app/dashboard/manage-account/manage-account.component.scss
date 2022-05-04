@@ -29,24 +29,10 @@ ul {
 }
 
 
-
-
-
-
-.search-box{
-    width: 100%;
-    outline: none;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    font-size: 0.9rem;
-    padding-left: 20px;
-    &:focus{
-        outline: none;
-        border: 1px solid #ffc20f;
-    }
+.valid-err{
+    font-size: 0.6rem;
+    color: #ca131f;
 }
-
 
 .btn-create{
     background: red;
@@ -57,20 +43,11 @@ ul {
     }
 }
 
-
-th{
-    font-size: 0.9rem;
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ffc20f;
 }
 
-td{
-    font-size: 0.8rem;
-}
-span{
-
-    &:hover{
-        cursor: pointer;
-    }
-}
-.delete{
-    color: red;
+.text-right{
+    text-align: right;
 }

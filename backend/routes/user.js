@@ -34,6 +34,19 @@ router.post('/signup', (req, res) => {
 })
 
 
+router.get('/getByEmail/:id',(req,res)=>{
+    const id = req.params.id;
+    let query = `select * from user where email = ?`;
+    db.query(query,[id],(err,result)=>{  
+        if(!err){
+            return res.status(200).json(result[0]);
+        }
+        else{
+            return res.status(500).json(err);
+        }  
+    })
+})
+
 router.post('/login', (req, res) => {
     const user = req.body;
     let query = `select id,email,password,name from user where email=?`;
@@ -253,7 +266,7 @@ router.post('/forgotPassword', (req, res) => {
 })
 
 
-router.patch('/update', auth.authenticateToken, (req, res) => {
+router.patch('/update', (req, res) => {
     const user = req.body;
     let query = "update user set name=? , password=? where id=?";
     db.query(query, [user.name, user.password, user.id], (err, result) => {

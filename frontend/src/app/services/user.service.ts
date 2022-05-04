@@ -37,6 +37,15 @@ export class UserService {
   }
 
   forgotPassword(data:any){
-    return this.httpClient.post(this.url+"/user//forgotPassword",data);
+    return this.httpClient.post(this.url+"/user/forgotPassword",data);
   }
+
+  getSingleUser(email : string){
+    return this.httpClient.get(this.url + "/user/getByEmail/" + email);
+  }
+
+  update(data:any){
+    return this.httpClient.patch(this.url+'/user/update',data);
+  }
+
 }
