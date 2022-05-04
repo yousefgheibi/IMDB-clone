@@ -10,6 +10,14 @@ export class FilmService {
   url = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
+  add(data:any){
+    return this.httpClient.post(this.url+'/film/add',data);
+  }
+
+  update(data:any){
+    return this.httpClient.patch(this.url+'/film/update',data);
+  }
+
 
   getFilm() {
     return this.httpClient.get(this.url + "/film/get/");
@@ -17,5 +25,20 @@ export class FilmService {
 
   getFilmByCategory(id: number) {
     return this.httpClient.get(this.url + "/film/getByCategory/" + id);
+  }
+
+
+  getFilmById(id: number) {
+    return this.httpClient.get(this.url + "/film/getById/" + id);
+  }
+
+
+  getFilmByUser(email: string){
+    return this.httpClient.get(this.url + "/film/getByUser/" +email);
+  }
+
+
+  deleteFilm(id:number){
+    return this.httpClient.delete(this.url + "/film/delete/" + id);
   }
 }

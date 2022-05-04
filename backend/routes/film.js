@@ -5,10 +5,10 @@ const router = express.Router();
 var auth = require("../services/auth");
 
 
-router.post('/add', auth.authenticateToken,(req, res) => {
+router.post('/add',(req, res) => {
     let film = req.body;
-    let query = `insert into film (title, description, product, language, duration, user_id, category_id) value (?, ?, ?, ?, ?, ?, ?)`;
-    db.query(query, [film.title,film.description,film.product,film.language,film.duration,film.user_id,film.category_id ], (err, result) => {
+    let query = `insert into film (title, description, product, language, duration, user_email, category_id) value (?, ?, ?, ?, ?, ?, ?)`;
+    db.query(query, [film.title,film.description,film.product,film.language,film.duration,film.email,film.category_id ], (err, result) => {
         if(!err){
             return res.status(200).json({message: "film Added Successfully."});
         }
@@ -62,10 +62,10 @@ router.get('/getBylanguage/:id',(req, res) => {
 
 })
 
-router.get('/getByUser/:id', auth.authenticateToken,(req, res) => {
-    const id = req.params.id;
-    let query = `select id,title from film where user_id = ?`;
-    db.query(query, [id], (err, result) => {
+router.get('/getByUser/:email',(req, res) => {
+    const email = req.params.email;
+    let query = `select * from film where user_email = ?`;
+    db.query(query, [email], (err, result) => {
         if(!err){
             return res.status(200).json(result);
         }
@@ -93,7 +93,7 @@ router.get('/getByCategory/:id',(req,res)=>{
 
 router.get('/getById/:id',(req,res)=>{
     const id = req.params.id;
-    let query = `select id,title,description,product,language,duration from film where id = ?`;
+    let query = `select * from film where id = ?`;
     db.query(query,[id],(err,result)=>{  
         if(!err){
             return res.status(200).json(result[0]);
@@ -105,7 +105,7 @@ router.get('/getById/:id',(req,res)=>{
 })
 
 
-router.patch('/update',auth.authenticateToken,(req,res)=>{
+router.patch('/update',(req,res)=>{
     let film = req.body;
     let query = "update film set title=? ,description=? ,product=? ,language=?, duration=?, category_id=? where id=?";
     db.query(query,[film.title,film.description,film.product,film.language,film.duration,film.category_id,film.id],(err,result)=>{
@@ -122,7 +122,7 @@ router.patch('/update',auth.authenticateToken,(req,res)=>{
 })
 
 
-router.delete('/delete/:id',auth.authenticateToken,(req,res)=>{
+router.delete('/delete/:id',(req,res)=>{
     let id = req.params.id;
     let query = "delete from film where id=?";
     db.query(query,[id],(err,result)=>{

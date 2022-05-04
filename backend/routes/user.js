@@ -36,7 +36,7 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
     const user = req.body;
-    let query = `select email,password,name from user where email=?`;
+    let query = `select id,email,password,name from user where email=?`;
     db.query(query, [user.email], (err, result) => {
         if (!err) {
             if (result.length <= 0 || result[0].password != user.password) {
@@ -45,7 +45,7 @@ router.post('/login', (req, res) => {
             else if (result[0].password == user.password) {
                 const response = { email: result[0].email }
                 const accessToken = jwt.sign(response, process.env.ACCESS_TOKEN, { expiresIn: '8h' });
-                res.status(200).json({ message:"Successfully logined.", token: accessToken });
+                res.status(200).json({ message:"Successfully logined.", token: accessToken , id: result[0].id });
             }
             else {
                 return res.status(400).json({ message: "Something went wrong. Please try again later." });

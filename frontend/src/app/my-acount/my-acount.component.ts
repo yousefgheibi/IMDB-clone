@@ -12,6 +12,7 @@ import { GlobalContanst } from 'src/app/shared/globalContanst';
 })
 export class MyAcountComponent implements OnInit {
   isShowDashboard: Boolean = false;
+  user_id !: number;
   signupForm!: FormGroup;
   loginForm!: FormGroup;
   forgotPasswordForm!: FormGroup;
@@ -45,6 +46,7 @@ export class MyAcountComponent implements OnInit {
     }
     this.userService.login(data).subscribe((res: any) => {
       this.responseMessage = res?.message;
+      this.user_id = res?.id;
       localStorage.setItem('token', res.token);
       this.notificationService.showSuccess(this.responseMessage);
       this.router.navigate(['/dashboard']);

@@ -11,6 +11,7 @@ import { GlobalContanst } from '../shared/globalContanst';
 export class RouterGuardService {
 
   constructor(public auth: AuthService, public router: Router, private notificationService: NotificationService) { }
+  public tokenPayloadEmail: any;
 
   canActivate(route:ActivatedRouteSnapshot):boolean {
       
@@ -20,6 +21,7 @@ export class RouterGuardService {
 
     try{
       tokenPayload = jwt_decode(token);
+      this.tokenPayloadEmail = tokenPayload.email;
     }
     catch(err){
       localStorage.clear();
