@@ -5,7 +5,7 @@ const router = express.Router();
 var auth = require("../services/auth");
 
 
-router.post('/add', auth.authenticateToken, (req, res, next) => {
+router.post('/add', (req, res, next) => {
     let catrgory = req.body;
     let query = `insert into category (name) values(?)`;
     db.query(query, [catrgory.name], (err, result) => {
@@ -32,7 +32,7 @@ router.get('/get', (req, res, next) => {
 })
 
 
-router.patch('/update', auth.authenticateToken, (req, res, next) => {
+router.patch('/update', (req, res, next) => {
     let category = req.body;
     let query = "update category set name=? where id=?";
     db.query(query, [category.name, category.id], (err, result) => {
