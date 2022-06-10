@@ -5,6 +5,7 @@ import { ManageAccountComponent } from './manage-account/manage-account.componen
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageCommentComponent } from './manage-comment/manage-comment.component';
 import { ManageFilmComponent } from './manage-film/manage-film.component';
+import { ManageRateComponent } from './manage-rate/manage-rate.component';
 
 export const DashboardRoutes: Routes = [
   {
@@ -26,5 +27,9 @@ export const DashboardRoutes: Routes = [
 {
   path: 'manage-comment',
   component: ManageCommentComponent
+},
+{
+  path: 'manage-rate',
+  component: ManageRateComponent
 }
 ];

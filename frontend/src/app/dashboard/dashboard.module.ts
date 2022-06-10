@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManageAccountComponent } from './manage-account/manage-account.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageCommentComponent } from './manage-comment/manage-comment.component';
+import { ManageRateComponent } from './manage-rate/manage-rate.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ManageCommentComponent } from './manage-comment/manage-comment.componen
     ReactiveFormsModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [DashboardComponent, ManageFilmComponent, ManageAccountComponent, ManageCategoryComponent, ManageCommentComponent]
+  declarations: [DashboardComponent, ManageFilmComponent, ManageAccountComponent, ManageCategoryComponent, ManageCommentComponent, ManageRateComponent]
 })
 export class DashboardModule { }
