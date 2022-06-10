@@ -16,3 +16,14 @@ button:focus {
     box-shadow: none !important;
     outline: none !important;
 }
+
+input,
+textarea,
+select {
+    font-size: 0.86rem !important;
+    font-weight: 400 !important;
+}
+
+button {
+    font-size: 0.9rem !important;
+}

@@ -7,6 +7,7 @@ import { ManageFilmComponent } from './manage-film/manage-film.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManageAccountComponent } from './manage-account/manage-account.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
+import { ManageCommentComponent } from './manage-comment/manage-comment.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ManageCategoryComponent } from './manage-category/manage-category.compo
     ReactiveFormsModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [DashboardComponent, ManageFilmComponent, ManageAccountComponent, ManageCategoryComponent]
+  declarations: [DashboardComponent, ManageFilmComponent, ManageAccountComponent, ManageCategoryComponent, ManageCommentComponent]
 })
 export class DashboardModule { }

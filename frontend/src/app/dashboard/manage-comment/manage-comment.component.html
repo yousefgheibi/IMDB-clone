@@ -18,7 +18,7 @@
                     <input type="search" placeholder="search" class="search-box" name="searchKey" autocomplete="off" [(ngModel)]="searchKey" (ngModelChange)="doSearch($event)">
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-create" data-bs-toggle="modal" (click)="clicktoAddCategory()" data-bs-target="#exampleModal">Add Category</button>
+                    <button class="btn btn-create" data-bs-toggle="modal" (click)="clicktoAddComment()" data-bs-target="#exampleModal">Add Comment</button>
                 </div>
             </div>
             <hr>
@@ -27,16 +27,21 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Title</th>
+                            <th scope="col">Movie</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Comment</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of dataSource; let i = index">
                             <th scope="row">{{i+1}}</th>
-                            <td>{{item.name}}</td>
+                            <td>{{item.film_id}}</td>
+                            <td>{{item.created_at | date}}</td>
+                            <td>{{item.content}}</td>
                             <td>
-                                <span class="material-icons" (click)="editCategoryClick(item)" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</span>&nbsp;
+                                <span class="material-icons" (click)="editComment(item)" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</span>&nbsp;
+                                <span class="delete material-icons" (click)="deleteComment(item.id)">clear</span>
                             </td>
                         </tr>
                     </tbody>
@@ -52,21 +57,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" *ngIf="showAdd" id="exampleModalLabel">Add Category</h5>
-                <h5 class="modal-title" *ngIf="showEdit" id="exampleModalLabel">Edit Category</h5>
+                <h5 class="modal-title" *ngIf="showAdd" id="exampleModalLabel">Add Comment</h5>
+                <h5 class="modal-title" *ngIf="showEdit" id="exampleModalLabel">Edit Comment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="AddCategoryForm">
+                <form [formGroup]="AddComentForm">
                     <div class="mb-3">
-                        <input type="text" formControlName="name" class="form-control" placeholder="title">
+                        <textarea class="form-control" formControlName="content" placeholder="Your Comment" rows="6"></textarea>
                     </div>
+
+                    <div class="col">
+                        <select class="form-select" formControlName="film" aria-label="film">
+                            <option *ngFor="let item of films" [value]="item.id">{{item.title}}</option>
+                          </select>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #closebutton>Close</button>
-                <button type="button" *ngIf="showAdd" class="btn btn-create" (click)="addCategory()" [disabled]="!AddCategoryForm.valid">add</button>
-                <button type="button" *ngIf="showEdit" class="btn btn-create" (click)="EditCategory()" [disabled]="!AddCategoryForm.valid">Edit</button>
+                <button type="button" *ngIf="showAdd" class="btn btn-create" (click)="addComment()" [disabled]="!AddComentForm.valid">add</button>
+                <button type="button" *ngIf="showEdit" class="btn btn-create" (click)="EditCommentPost()" [disabled]="!AddComentForm.valid">Edit</button>
             </div>
         </div>
     </div>

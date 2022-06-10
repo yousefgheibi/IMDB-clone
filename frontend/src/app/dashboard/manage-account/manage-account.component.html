@@ -5,7 +5,7 @@
                 <ul>
                     <li routerLink="/dashboard/manage-category" routerLinkActive="active"><span class="material-icons">category</span>Manage Category</li>
                     <li routerLink="/dashboard/manage-movie" routerLinkActive="active"><span class="material-icons">movie</span>Manage Movie</li>
-                    <li [routerLink]="['/manage-movie']" routerLinkActive="active"><span class="material-icons">comment</span>Manage Comment</li>
+                    <li routerLink="/dashboard/manage-comment" routerLinkActive="active"><span class="material-icons">comment</span>Manage Comment</li>
                     <li [routerLink]="['/manage-movie']" routerLinkActive="active"><span class="material-icons">star</span>Manage Rate</li>
                     <li routerLink="/dashboard/manage-account" routerLinkActive="active"><span class="material-icons">person</span>Manage Account</li>
                     <li (click)="logout()"><span class="material-icons">logout</span> Logout</li>
@@ -19,33 +19,33 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Manage Account</h4>
                         </div>
-                       <form [formGroup]="UserForm">
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <label class="labels">Name</label>
-                                <input formControlName="name" autocomplete="off" type="text" class="form-control" placeholder="name">
-                                <div *ngIf="UserForm.controls['name'].touched && UserForm.controls['name'].invalid">
-                                    <span class="valid-err" *ngIf="UserForm.controls['name'].errors?.['required']">This field is manadatory.</span>
-                                    <span class="valid-err" *ngIf="UserForm.controls['name'].errors?.['pattern']">This field is invalid.</span>
+                        <form [formGroup]="UserForm">
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <label class="labels">Name</label>
+                                    <input formControlName="name" autocomplete="off" type="text" class="form-control" placeholder="name">
+                                    <div *ngIf="UserForm.controls['name'].touched && UserForm.controls['name'].invalid">
+                                        <span class="valid-err" *ngIf="UserForm.controls['name'].errors?.['required']">This field is manadatory.</span>
+                                        <span class="valid-err" *ngIf="UserForm.controls['name'].errors?.['pattern']">This field is invalid.</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                                <label class="labels">Email</label>
-                                <input formControlName="email" type="text" class="form-control" readonly>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">Email</label>
+                                    <input formControlName="email" type="text" class="form-control" readonly>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                                <label class="labels">Password</label>
-                                <input formControlName="password" autocomplete="off" type="text" class="form-control" placeholder="Password">
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">Password</label>
+                                    <input formControlName="password" autocomplete="off" type="text" class="form-control" placeholder="Password">
+                                </div>
+                                <div *ngIf="UserForm.controls['password'].touched && UserForm.controls['password'].invalid">
+                                    <span class="valid-err" *ngIf="UserForm.controls['password'].errors?.['required']">This field is manadatory.</span>
+                                </div>
                             </div>
-                            <div *ngIf="UserForm.controls['password'].touched && UserForm.controls['password'].invalid">
-                                <span class="valid-err" *ngIf="UserForm.controls['password'].errors?.['required']">This field is manadatory.</span>
-                            </div>
-                        </div>
-                       </form>
+                        </form>
                         <div class="mt-5 text-right"><button class="btn btn-create" (click)="updateUser()" [disabled]="!(UserForm.valid && UserForm.touched)" type="button">Save changes</button></div>
                     </div>
                 </div>
