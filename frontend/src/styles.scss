@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
 
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+body {
     font-family: 'Poppins', sans-serif;
 }
 
-
-.toast-container{
+.toast-container {
     font-size: 0.8rem !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
