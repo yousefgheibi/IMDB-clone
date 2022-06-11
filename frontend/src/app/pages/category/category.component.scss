@@ -46,3 +46,12 @@ span {
         color: red;
     }
 }
+
+td.title {
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+td.title:hover {
+    color: red !important;
+}

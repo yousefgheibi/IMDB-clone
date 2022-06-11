@@ -13,6 +13,7 @@ import { MyAcountComponent } from './my-acount/my-acount.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     CategoryComponent,
     FavoriteComponent,
-    MyAcountComponent
+    MyAcountComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

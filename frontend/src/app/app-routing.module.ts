@@ -6,6 +6,7 @@ import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyAcountComponent } from './my-acount/my-acount.component';
 import { RouterGuardService } from './services/router-guard.service';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent  },
       { path: 'favorite', component: FavoriteComponent  },
       { path: 'my-account', component: MyAcountComponent },
+      { path: 'movie/:movieId', component: MovieDetailComponent },
       {  path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate:[RouterGuardService],

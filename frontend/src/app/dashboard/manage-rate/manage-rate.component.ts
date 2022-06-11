@@ -80,7 +80,7 @@ export class ManageRateComponent implements OnInit {
   doSearch(searchKey: string) {
     let result = [];
     if (searchKey.length >1) {
-      result = this.dataSource.filter((item: { content: string; }) => {
+      result = this.dataSource.filter((item: { rate: number; }) => {
         // @ts-ignore
         return !(item.rate.trim().indexOf(this.searchKey.trim()) <= -1);
       });
