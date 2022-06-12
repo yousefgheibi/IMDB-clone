@@ -67,7 +67,7 @@ router.get('/getByFilm/:id', (req, res) => {
 
 router.get('/getByUser/:email', (req, res) => {
     const email = req.params.email;
-    let query = `select * from coment where user_email = ?`;
+    let query = `SELECT coment.id, coment.content, coment.created_at ,coment.user_email, film.title FROM coment JOIN film on coment.film_id = film.id where coment.user_email = ?`;
     db.query(query, [email], (err, result) => {
         if (!err) {
             return res.status(200).json(result);
