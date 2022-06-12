@@ -1,57 +1,64 @@
-aside {
-    width: 200px;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
-    min-height: 80vh;
-    background: #fdfdfd;
-    padding: 30px;
-}
-
-ul {
-    list-style: none;
-    li {
-        height: 30px;
-        &:hover {
-            cursor: pointer;
+    aside {
+        width: 200px;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
+        min-height: 80vh;
+        background: #fdfdfd;
+        padding: 30px;
+        padding-left: 10px;
+    }
+    
+    ul {
+        list-style: none;
+        padding-left: 0px !important;
+        li {
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #ddd;
+            transition: all 300ms ease;
+            height: 35px;
+            &:hover {
+                cursor: pointer;
+                margin-left: 10px;
+                color: red;
+            }
         }
     }
-}
-
-.search-box {
-    width: 100%;
-    outline: none;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    font-size: 0.9rem;
-    padding-left: 20px;
-    &:focus {
+    
+    .search-box {
+        width: 100%;
         outline: none;
-        border: 1px solid #ffc20f;
+        height: 40px;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        font-size: 0.9rem;
+        padding-left: 20px;
+        &:focus {
+            outline: none;
+            border: 1px solid #ffc20f;
+        }
     }
-}
-
-th {
-    font-size: 0.9rem;
-}
-
-td {
-    font-size: 0.8rem;
-}
-
-span {
-    transition: all 300ms ease;
-    &:hover {
+    
+    th {
+        font-size: 0.9rem;
+    }
+    
+    td {
+        font-size: 0.8rem;
+    }
+    
+    span {
+        transition: all 300ms ease;
+        &:hover {
+            cursor: pointer;
+            color: red;
+        }
+    }
+    
+    td.title {
         cursor: pointer;
-        color: red;
+        transition: all 300ms ease;
     }
-}
-
-td.title {
-    cursor: pointer;
-    transition: all 300ms ease;
-}
-
-td.title:hover {
-    color: red !important;
-}
+    
+    td.title:hover {
+        color: red !important;
+    }

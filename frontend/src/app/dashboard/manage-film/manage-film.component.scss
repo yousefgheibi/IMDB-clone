@@ -1,39 +1,36 @@
 aside {
-    width: 300px;
+    width: 200px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
     min-height: 100vh;
     height: 100%;
     background: #fdfdfd;
-    padding: 30px 20px;
+    padding: 20px;
+    padding-left: 0px;
 }
+
 ul {
     list-style: none;
-
+    padding-left: 0px;
     li {
         height: 50px;
         font-size: 0.85rem;
         display: flex;
         align-items: center;
         transition: all 300ms ease;
-        &:hover,&.active {
+        &:hover,
+        &.active {
             cursor: pointer;
             margin-left: 10px;
             color: red;
         }
-    
-        span{
+        span {
             margin-right: 10px;
         }
     }
 }
 
-
-
-
-
-
-.search-box{
+.search-box {
     width: 100%;
     outline: none;
     height: 40px;
@@ -41,36 +38,35 @@ ul {
     border-radius: 7px;
     font-size: 0.9rem;
     padding-left: 20px;
-    &:focus{
+    &:focus {
         outline: none;
         border: 1px solid #ffc20f;
     }
 }
 
-
-.btn-create{
+.btn-create {
     background: red;
-    color:#fdfdfd;
-    &:focus{
+    color: #fdfdfd;
+    &:focus {
         outline: none;
         box-shadow: none;
     }
 }
 
-
-th{
+th {
     font-size: 0.9rem;
 }
 
-td{
+td {
     font-size: 0.8rem;
 }
-span{
 
-    &:hover{
+span {
+    &:hover {
         cursor: pointer;
     }
 }
-.delete{
+
+.delete {
     color: red;
 }
