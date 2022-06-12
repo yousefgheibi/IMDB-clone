@@ -35,7 +35,7 @@
                     <tbody>
                         <tr *ngFor="let item of dataSource; let i = index">
                             <th scope="row">{{i+1}}</th>
-                            <td>{{item.film_id}}</td>
+                            <td>{{item.title}}</td>
                             <td>{{item.rate}}</td>
                             <td>
                                 <span class="material-icons" (click)="editRate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</span>&nbsp;

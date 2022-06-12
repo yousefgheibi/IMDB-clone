@@ -53,7 +53,9 @@ router.delete('/delete/:id', (req, res) => {
 
 router.get('/getByFilm/:id', (req, res) => {
     const id = req.params.id;
-    let query = `select * from rating where film_id = ?`;
+    let query = `SELECT * , ( SELECT AVG(rating.rate) FROM rating WHERE rating.film_id = film.id) AS avg_rating 
+ FROM
+   film where film_id = ?`;
     db.query(query, [id], (err, result) => {
         if (!err) {
             return res.status(200).json(result);
@@ -67,7 +69,7 @@ router.get('/getByFilm/:id', (req, res) => {
 
 router.get('/getByUser/:email', (req, res) => {
     const email = req.params.email;
-    let query = `select * from rating where user_email = ?`;
+    let query = `SELECT rating.id, rating.rate, rating.user_email, film.title FROM rating JOIN film on rating.film_id = film.id where rating.user_email = ?`;
     db.query(query, [email], (err, result) => {
         if (!err) {
             return res.status(200).json(result);
